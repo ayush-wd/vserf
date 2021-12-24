@@ -1101,6 +1101,17 @@
     }
   }
 
+  @media screen and (max-width: 979px) {
+    div.corousel-inner.my-inner {       
+        border-top: 10px;
+        border-left: 10px;
+        border-right: 10px;
+        border-bottom: 00px;
+        border-color: #fff;
+        border-style: solid;
+    }
+}
+
 
   @media(max-width:560px) {
     .spacemob {
@@ -1397,44 +1408,38 @@
 
 
 
-          <div id="carousel-demo" class="carousel vertical slide" data-ride="carousel" data-interval="2000">
+          <div id="carousel-demo" class="carousel horizontal slide" data-ride="carousel" data-interval="2000">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators" style="align:center;">
               <li data-target="#carousel-demo" data-slide-to="0" class="active"></li>
               <li data-target="#carousel-demo" data-slide-to="1"></li>
               <li data-target="#carousel-demo" data-slide-to="2"></li>
-              <li data-target="#carousel-demo" data-slide-to="3"></li>
             </ol>
 
             <!-- Sliding images statring here -->
-            <div class="carousel-inner">
-              <div class="item active">
-                <img src="images/banana.jpg" alt="banana">
-                
+            <div class="carousel-inner  my-inner">
+              <div class="item active border border-dark">
+                <span class="border border-dark">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt2HFv5EGFCTjPpvstAtMHJAH-tN8UQKzk7A&usqp=CAU"
+                    alt="banana">
+                </span>
               </div>
-              <div class="item">
-                <img src="images/currant.jpg" alt="currant">
-                
+              <div class="item border border-dark">
+                <span class="border border-dark">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKJ8bGpwKp3rtA8xCg56QZp2xLusswMKOPnw&usqp=CAU"
+                    alt="mango">
+                </span>
               </div>
-              <div class="item">
-                <img src="images/mango.jpg" alt="mango">
-                
-              </div>
-              <div class="item">
-                <img src="images/strawberries.jpg" alt="strawberries">
+              <div class="item border border-dark">
+                <span class="border border-dark">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9PtsCw5IDoHOkZ0SqTmdlxRpLVhSungfPfg&usqp=CAU"
+                    alt="strawberries">
+                </span>
               </div>
 
-            </div>
-
-            <!-- Next / Previous controls here -->
-            <a class="left carousel-control" href="#carousel-demo" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-up"></span>
-            </a>
-            <a class="right carousel-control" href="#carousel-demo" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-down"></span>
-            </a>
-
-            <div>
 
             </div>
           </div>
@@ -1451,7 +1456,7 @@
 
 
         </div>
-        
+
         <div class="column right">
           <div class="text">
             <span class="typing-2"></span>
@@ -1472,7 +1477,7 @@
         </div>
       </div>
     </div>
-    
+
   </section>
 
   <!-- about section start -->
@@ -1548,7 +1553,7 @@
 
   <!-- footer section start -->
   <footer>
-    <span>Created By Ayush Yadav | <span class="far fa-copyright"></span> 2021 All rights reserved.</span>
+    <span>Created By Katta Sai Vineeth | <span class="far fa-copyright"></span> 2021 All rights reserved.</span>
   </footer>
 
   <!-- Somehow I got an error, so I comment the script tag, just uncomment to use -->
