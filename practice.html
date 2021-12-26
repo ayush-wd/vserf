@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  @media (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu {
+      position: absolute;
+      right: 0;
+      left: auto;
+      padding: 5px 0;
+      margin: 2px 0 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border: 1px solid rgba(0, 0, 0, .15);
+      border-radius: 4px;
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    }
+
+    .navbar-nav .open .dropdown-menu>li>a {
+      color: #000;
+      padding: 3px 20px;
+      line-height: 1.42857143;
+    }
+
+    .navbar-nav .open .dropdown-menu>li>a:hover,
+    .navbar-nav .open .dropdown-menu>li>a:focus {
+      color: #333;
+      background-color: #e7e7e7 !important;
+      background-image: none;
+    }
+
+    .navbar-nav .open .dropdown-menu>.active>a,
+    .navbar-nav .open .dropdown-menu>.active>a:hover,
+    .navbar-nav .open .dropdown-menu>.active>a:focus {
+      color: #555;
+      background-color: #e7e7e7 !important;
+    }
+
+    .navbar-nav .open .dropdown-menu>.disabled>a,
+    .navbar-nav .open .dropdown-menu>.disabled>a:hover,
+    .navbar-nav .open .dropdown-menu>.disabled>a:focus {
+      color: #ccc;
+      background-color: transparent;
+    }
+  }
+
+  @import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+
+  #header {
+    position: relative;
+    z-index: 1010;
+  }
+
+  /* nav styling*/
+  .navbar-default {
+    border-bottom: 0.5px solid rgb(180, 180, 180);
+  }
+
+  .navbar-brand {
+    font-family: Comic Sans MS;
+    color: rgb(0, 50, 150);
+    font-size: 150%;
+    font-weight: italic;
+  }
+
+  /*desktop bar related*/
+  @media (max-width:767px) {
+    .desktop-bar {
+      /*margin: 10px 10px 10px 10px;*/
+      display: none;
+    }
+  }
+
+  .mob-nav {
+    margin: 0px;
+    padding: 0px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+  }
+
+  .mob-home {
+    -webkit-order: 1;
+    order: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    margin-left: -1em;
+  }
+
+  .mob-search {
+    /*width:50%;
+	margin-top:0.2em;*/
+    margin-top: 0.5em;
+    -webkit-order: 2;
+    order: 2;
+    -webkit-flex-grow: 2;
+    flex-grow: 2;
+    min-width: 6em;
+    size: 50%
+  }
+
+  .mob-notify {
+    -webkit-order: 3;
+    order: 3;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    min-width: 5em;
+  }
+
+  .mob-more {
+    /*width:7em;*/
+    -webkit-order: 4;
+    order: 4;
+    -webkit-flex-grow: 2;
+    flex-grow: 2;
+    min-width: 7em;
+  }
+
+  @media(min-width:768px) {
+    .mobile-bar {
+      /*margin: 10px 10px 10px 10px;*/
+      display: none;
+    }
+  }
+
+  .wrapper {
+    padding-top: 50px;
+  }
+
+  .badge-danger {
+    background-color: #d43f3a;
+  }
+
+  .badge-mob-notify {
+    margin-left: -0.5em;
+    margin-top: -0.5em;
+  }
+
+  /* dropdown menu */
+  @media (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu {
+      position: absolute;
+      right: 0;
+      left: auto;
+      padding: 5px 0;
+      margin: 2px 0 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border: 1px solid rgba(0, 0, 0, .15);
+      border-radius: 4px;
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    }
+
+    .navbar-nav .open .dropdown-menu>li>a {
+      color: #000;
+      padding: 3px 20px;
+      line-height: 1.42857143;
+    }
+
+    .navbar-nav .open .dropdown-menu>li>a:hover,
+    .navbar-nav .open .dropdown-menu>li>a:focus {
+      color: #333;
+      background-color: #e7e7e7 !important;
+      background-image: none;
+    }
+
+    .navbar-nav .open .dropdown-menu>.active>a,
+    .navbar-nav .open .dropdown-menu>.active>a:hover,
+    .navbar-nav .open .dropdown-menu>.active>a:focus {
+      color: #555;
+      background-color: #e7e7e7 !important;
+    }
+
+    .navbar-nav .open .dropdown-menu>.disabled>a,
+    .navbar-nav .open .dropdown-menu>.disabled>a:hover,
+    .navbar-nav .open .dropdown-menu>.disabled>a:focus {
+      color: #ccc;
+      background-color: transparent;
+    }
+  }
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>$(document).ready(function () {
+      $('.dropdown-toggle').dropdown();
+    });</script>
+
+
+
+
+  <div id="header">
+    <div class="desktop-bar">
+      <nav class="navbar navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Brand</a>
+          </div>
+          <ul class="nav navbar-nav navbar-left" role="navigation">
+            <li role="presentation" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fa fa-plus fa-lg "></i>&nbsp; <span>Add</span><span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">4</a></li>
+              </ul>
+            </li>
+            <li role="presentation">
+              <form class="desktop-search navbar-form navbar-left" role="search">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search a place" name="srch-term" id="srch-term">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  </span>
+                </div>
+              </form>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right" role="navigation">
+            <li role="presentation"><a href="#"><i class=" fa fa-heart fa-lg"></i>&nbsp; <span
+                  class=" nav-description">Favorites</span></a></li>
+            <li role="presentation"><a href="#"><i class=" fa fa-bell fa-lg"></i>&nbsp; <span
+                  class=" nav-description">Notifications<sup><span
+                      class="badge badge-danger badge-notify">8</span></sup></span></a></li>
+            <li role="presentation" class=" dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                aria-expanded="false">
+                <span class=" nav-description"><img style="height:22px; width:22px" src="pseudo.png"
+                    class=" img-circle"><sup><span class="badge badge-danger badge-msgs">6</span></sup>
+                </span><span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Messages<sup><span class="badge badge-danger badge-msgs">6</span></sup></a></li>
+                <li><a href="#">Feedback</a></li>
+                <li><a href="#">Settings</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="mobile-bar">
+      <nav class="navbar navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <ul class="mob-nav nav navbar-nav" role="navigation">
+            <li role="presentation" class="mob-home"><a href="#"><i class="fa fa-home "></i>&nbsp;</a></li>
+            <li role="presentation" class="mob-search">
+              <form class="mob-search-bar navbar-search" role="search">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="" name="srch-term" id="srch-term">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                  </span>
+                </div>
+              </form>
+            </li>
+            <li role="presentation" class="mob-notify"><a href="#"><i class=" fa fa-bell fa"></i>&nbsp;<sup><span
+                    class="badge badge-danger badge-mob-notify">8</span></sup></a></li>
+            <li role="presentation" class="mob-more dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                aria-expanded="false">
+                <span class=" nav-description"><img style="height:22px; width:22px" src="pseudo.png"
+                    class=" img-circle"><sup><span class="badge badge-danger badge-mob-msgs">6</span></sup>
+                </span><span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" style="z-index:99999;">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Messages<sup><span class="badge badge-danger badge-mob-msgs">6</span></sup></a></li>
+                <li><a href="#">Favorites</a></li>
+                <li><a href="#">Feedback</a></li>
+                <li><a href="#">Settings</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="nav">
+      nav
+    </div>
+    <div class="article">
+      artcle
+    </div>
+    <div class="aside">
+      aside
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+    integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

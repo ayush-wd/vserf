@@ -1102,15 +1102,15 @@
   }
 
   @media screen and (max-width: 979px) {
-    div.corousel-inner.my-inner {       
-        border-top: 10px;
-        border-left: 10px;
-        border-right: 10px;
-        border-bottom: 00px;
-        border-color: #fff;
-        border-style: solid;
+    div.corousel-inner.my-inner {
+      border-top: 10px;
+      border-left: 10px;
+      border-right: 10px;
+      border-bottom: 00px;
+      border-color: #fff;
+      border-style: solid;
     }
-}
+  }
 
 
   @media(max-width:560px) {
@@ -1179,11 +1179,20 @@
       line-height: 38px;
     }
   }
+
+  .logo-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+    overflow: hidden;
+    margin-top: 0px;
+  }
 </style>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <!-- Somehow I got an error, so I comment the title, just uncomment to show -->
   <!-- <title>Personal Portfolio Website</title> -->
   <link rel="stylesheet" href="styl.css">
@@ -1275,19 +1284,26 @@
 
 
 
+
   <nav class="navbar navbar-inverse"
     style="margin-bottom: 0px; border-bottom-width: 1px; padding-bottom: 11px; position: fixed; background-color: #031446;">
     <div class="container-fluid">
       <div class="navbar-header responsive">
 
+        <a class="navbar-brand" href="/">
+          <div class="logo-image"> <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgJrdiQzk8Gi3L1iyYB9Eeb64nPqPpj-QRtw&usqp=CAU"
+              class="img-fluid"> </div>
+        </a>
 
         <ul class="nav navbar-nav">
-          <a class="navbar-brand" href="http://binstitute.org/"> VSERF</a>
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+          <a class="navbar-brand " href="http://binstitute.org/">
+            <a class="navbar-brand" href="http://binstitute.org/"> VSERF</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
         </ul>
 
 
@@ -1301,16 +1317,17 @@
     <div class="collapse navbar-collapse" id="myNavbar">
 
 
-      <a class="navbar-brand " href="http://binstitute.org/" style="padding-top: 0px">
-        <img class="logo-icon"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgJrdiQzk8Gi3L1iyYB9Eeb64nPqPpj-QRtw&usqp=CAU">
+      <a class="navbar-brand" href="/">
+        <div class="logo-image"> <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgJrdiQzk8Gi3L1iyYB9Eeb64nPqPpj-QRtw&usqp=CAU"
+            class="img-fluid"> </div>
       </a>
 
       <ul class="nav navbar-nav nonvis">
         <a class="navbar-brand" href="http://binstitute.org/"> VSERF</a>
       </ul>
       <ul class="nav navbar-nav resnav">
-        <li class="active"><a href="#home">Home</a></li>
+        <li class="active" style="text-align:left;"><a href="#home">Home</a></li>
         <li class="active"><a href="#about">Outreach</a></li>
 
         <li class="active"><a href="pages/about.html">About us</a></li>
@@ -1341,6 +1358,83 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
 
+  <script>
+
+    $(document).ready(function () {
+      $(window).scroll(function () {
+        // sticky navbar on scroll script
+        if (this.scrollY > 20) {
+          $('.navbar').addClass("sticky");
+        } else {
+          $('.navbar').removeClass("sticky");
+        }
+
+        // scroll-up button show/hide script
+        if (this.scrollY > 500) {
+          $('.scroll-up-btn').addClass("show");
+        } else {
+          $('.scroll-up-btn').removeClass("show");
+        }
+      });
+
+      // slide-up script
+      $('.scroll-up-btn').click(function () {
+        $('html').animate({ scrollTop: 0 });
+        // removing smooth scroll on slide-up button click
+        $('html').css("scrollBehavior", "auto");
+      });
+
+      $('.navbar .menu li a').click(function () {
+        // applying again smooth scroll on menu items click
+        $('html').css("scrollBehavior", "smooth");
+      });
+
+      // toggle menu/navbar script
+      $('.menu-btn').click(function () {
+        $('.navbar .menu').toggleClass("active");
+        $('.menu-btn i').toggleClass("active");
+      });
+
+
+      // typing text animation script
+      var typed = new Typed(".typing", {
+        strings: ["YouTuber", "Developer", "Blogger", "Designer", "Freelancer"],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+      });
+
+      var typed = new Typed(".typing-2", {
+        strings: ["YouTuber", "Developer", "Blogger", "Designer", "Freelancer"],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+      });
+
+      // owl carousel script
+      $('.carousel').owlCarousel({
+        margin: 20,
+        loop: true,
+        autoplayTimeOut: 2000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 1,
+            nav: false
+          },
+          600: {
+            items: 2,
+            nav: false
+          },
+          1000: {
+            items: 3,
+            nav: false
+          }
+        }
+      });
+    });
+
+  </script>
   <!-- home section start -->
   <section class="home" id="home">
     <div class="max-width width-mid">
@@ -1391,7 +1485,7 @@
   <br>
 
 
-  <marquee class="hide-off" behavior="scroll" direction="left" style="font-size: 18px; color: #031446;">Eligibility:....
+  <marquee class="hide-off" behavior="scroll" direction="left" style="font-size: 18px; color: #031446;">
     <br>
   </marquee>
 
